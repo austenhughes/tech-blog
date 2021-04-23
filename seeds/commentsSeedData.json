@@ -1,0 +1,20 @@
+[
+    {
+        "comment": "happy birthday Austen!!!",
+        "date": "1991-02-08",
+        "post_id": 1,
+        "user_id": 1
+    },
+    {
+        "date": "1991-02-08",
+        "comment": "happy birthday Kevin!!!",
+        "post_id": 2,
+        "user_id": 1
+    },
+    {
+        "comment": "a very merry un-birthday to you!!!",
+        "date": "1991-02-08",
+        "post_id": 3,
+        "user_id": 2
+    }
+]
