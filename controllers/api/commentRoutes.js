@@ -35,9 +35,9 @@ router.post("/newComment", async (req, res) => {
       const newComment = await Comments.create(req.body);
       req.session.save(() => {
         req.session.comment = newComment.comment;
-        // req.session.date = newComment.date;
-        // req.session.post_id = newComment.post_id;
-        // req.session.user_id = newComment.user_id;
+        req.session.date = newComment.date;
+        req.session.post_id = newComment.post_id;
+        req.session.user_id = newComment.user_id;
         res.status(200).json(newComment);
       });
     } catch (err) {

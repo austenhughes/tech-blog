@@ -29,27 +29,13 @@ $(function () {
         });
     });
 
-    $("#readbtn").on("click", function (e) {
-      fetch(`/viewNote/${id}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newUser),
-      })
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          console.log(data);
-        });
-    });
-
     $("#commentbtn").on("click", function (e) {
       const comment = $("#commentBox").val();
+      const date = $("#dateBox").val();
         // ids?
       const newComment = {
-        comment
+        comment,
+        date
       };
       console.log(newComment);
       fetch(`/api/comments/newComment`, {

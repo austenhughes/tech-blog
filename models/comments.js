@@ -12,10 +12,10 @@ Comments.init(
     },
     comment: {
         type: DataTypes.STRING,
-        // allowNull: false,
-        // validate: {
-        // notNull: { args: true, msg: "You did not comment" },
-        // },
+        allowNull: false,
+        validate: {
+        notNull: { args: true, msg: "You did not comment" },
+        },
     },
     date: {
         type: DataTypes.DATE,
