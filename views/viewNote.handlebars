@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="navBar" id="navBar">
+      <div class="nav-item">
+        <a class="nav-btn" onclick="window.location" aria-current="page"
+          href="/home">home</a>
+          <a class="nav-btn" onclick="window.location" aria-current="page"
+          href="/login">logout</a>
+          <a class="nav-btn" onclick="window.location" aria-current="page"
+          href="/newPost">new post</a>
+      </div>
+  </div>
+  </div>
+</nav>
+<div>
+  <section>
+    <h3>View note!</h3>
+    <section class="post">
+      {{#each thisPost as |post|}}
+      <p>{{> note}}</p>
+      {{/each}}
+    </section>
+    <div class="form">
+      <textarea class="form-control" id="commentBox" placeholder="comment">
+        </textarea>
+      <button id="commentbtn" type="submit" class="btn commentbtn">comment</button>
+    </div>
+    <section class="comment">
+      {{#each thisPostComments as |post|}}
+      <p>{{> comments}}</p>
+      {{/each}}
+    </section>
+  </section>
+</div>

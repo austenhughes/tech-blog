@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="navBar" id="navBar">
+      <div class="nav-item">
+        <a class="nav-btn" onclick="window.location" aria-current="page"
+          href="./home">home</a>
+          <a class="nav-btn" onclick="window.location" aria-current="page"
+          href="./login">logout</a>
+          <a class="nav-btn" onclick="window.location" aria-current="page"
+          href="./newPost">new post</a>
+      </div>
+  </div>
+  </div>
+</nav>
+
+<div>
+  <section class="container">
+    <h3>Home!</h3>
+    <section class="flex-row justify-center">
+      {{#each titles as |post|}}
+      <p>{{> notesList}}</p>
+      {{/each}}
+    </section>
+  </section>
+</div>

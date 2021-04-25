@@ -1,0 +1,23 @@
+/* #commentBox {
+height: 50px;
+width: 500px;
+text-align: center;
+} */
+
+textarea {
+height: 50px;
+width: 500px;
+text-align: center;
+} 
+
+.comment {
+text-align: center;
+}
+
+.post {
+text-align: center;  
+}
+
+.form {
+text-align: center;  
+}

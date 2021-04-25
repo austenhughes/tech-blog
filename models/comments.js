@@ -12,27 +12,27 @@ Comments.init(
     },
     comment: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-        notNull: { args: true, msg: "You did not comment" },
-        },
+        // allowNull: false,
+        // validate: {
+        // notNull: { args: true, msg: "You did not comment" },
+        // },
     },
     date: {
         type: DataTypes.DATE,
-        allowNull: false,
+        // allowNull: false,
     },
     post_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "post",
-        key: "id",
+        model: 'post',
+        key: 'id',
       },
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "user",
-        key: "id",
+        model: 'user',
+        key: 'id',
       },
   }
   },
