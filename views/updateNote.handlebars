@@ -12,23 +12,12 @@
   </div>
 </nav>
 <div>
-  <section>
-    <h3>View note!</h3>
+
+    <h3>edit note!</h3>
     <section class="post">
-      {{#each thisPost as |post|}}
-      <p>{{> note}}</p>
+      {{#each thisPostEdit as |post|}}
+      <p>{{> noteEdit}}</p>
       {{/each}}
-    </section>
-    <div class="form">
-      <textarea class="form-control" id="commentBox" placeholder="comment"></textarea>
-      <a class="btn" id="commentbtn" onclick="window.location" aria-current="page"
-          href='/home'>comment</a>
-    </div>
-    <section class="comment">
-      {{#each thisPostComments as |post|}}
-      <p>{{> comments}}</p>
-      {{/each}}
-    </section>
   </section>
 </div>
 

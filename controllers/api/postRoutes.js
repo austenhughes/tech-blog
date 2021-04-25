@@ -60,7 +60,7 @@ router.post("/newPost", async (req, res) => {
 //     });
   
 
-router.put('/:id', async (req, res) => {
+router.put('/update/:id', async (req, res) => {
     const newData = await Post.update(
       {
         date: req.body.date,

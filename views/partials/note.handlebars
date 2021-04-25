@@ -6,14 +6,14 @@
 
   <div class="card-body">
 
-    <button id="updateBtn" type="submit" class="btn updateBtn">update</button>
-    <button id="deleteBtn" type="submit" class="btn deleteBtn">delete</button>
+    <a class="btn" onclick="window.location" aria-current="page"
+          href="/updateNote/{{id}}">update</a>
+          
+    <button id="deletebtn" type="submit" class="btn deletebtn">delete</button>
 
-        <div class="list" id="date"> date :{{date}}</div>
         <div class="list" id="author"> author : {{author}}</div>
         <div class="list" id="post"> post : {{post}}</div>
-        {{!-- <div class="list" id="id"> id : {{id}}</div>
-        <div class="list" id="user_id"> id : {{user_id}}</div> --}}
+        <div class="list"> id: <div id="postid">{{id}}</div></div>
         
       </div>
       </a>

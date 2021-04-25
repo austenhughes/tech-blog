@@ -1,6 +1,7 @@
 const url = "https://localhost3001";
 
 $(function () {
+
     $("#savebtn").on("click", function (e) {
       const name = $("#name").val();
       const username = $("#username").val();
@@ -31,11 +32,13 @@ $(function () {
 
     $("#commentbtn").on("click", function (e) {
       const comment = $("#commentBox").val();
-      const date = $("#dateBox").val();
-        // ids?
+      const date = $.now();
+      const post_id = $("#postid").text();
+        
       const newComment = {
         comment,
-        date
+        date,
+        post_id,
       };
       console.log(newComment);
       fetch(`/api/comments/newComment`, {
@@ -54,7 +57,7 @@ $(function () {
     });
   
     $("#postbtn").on("click", function (e) {
-      const date = $("#date").val();
+      const date = $.now();
       const author = $("#author").val();
       const title = $("#title").val();
       const post = $("#post").val();
@@ -72,6 +75,36 @@ $(function () {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(newPost),
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data);
+        });
+    });
+
+    $("#updateThisbtn").on("click", function (e) {
+      const id = $("#postid").text();
+      const date = $.now();
+      const author = $("#author").val();
+      const title = $("#title").val();
+      const post = $("#post").val();
+     
+      const updatedPost = {
+        id,
+        date,
+        author,
+        title,
+        post,
+      };
+      console.log(updatedPost);
+      fetch(`/api/posts/update/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedPost),
       })
         .then(function (response) {
           return response.json();
