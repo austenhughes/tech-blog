@@ -137,4 +137,25 @@ $(function () {
         });
     });
 
+    $("#deleteCommentbtn").on("click", function (e) {
+      const id = $("#commentid").text();
+      const deletedComment = {
+
+      }
+      
+      fetch(`/api/comments/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(deletedComment),
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data);
+        });
+    });
+
   });
