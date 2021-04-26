@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="navBar" id="navBar">
-      <div class="nav-item">
+<nav class="navbar">
+  <div id="navBar">
+      <div class="nav-items">
         <a class="nav-btn" onclick="window.location" aria-current="page"
           href="./home">home</a>
           <a class="nav-btn" id="logout" onclick="window.location" aria-current="page"
@@ -13,23 +13,23 @@
 </nav>
 <div class="basic" >My Tech Blog</div>
 
-<h1 class="basic"> Create New Post </h1>
+<div class="basic"> Create New Post </div>
 
     <div class="form basic">
       <textarea class="form-control" id="author" placeholder="author"></textarea>
-      <label for="floatingInput">author</label>
+      {{!-- <label for="floatingInput">author</label> --}}
     </div>
     <div class="form basic">
       <textarea class="form-control" id="title" placeholder="title"></textarea>
-      <label for="floatingInput">title</label>
+      {{!-- <label for="floatingInput">title</label> --}}
     </div>
     <div class="form basic">
       <textarea class="form-control" id="post" placeholder="post"></textarea>
-      <label for="floatingInput">post</label>
+      {{!-- <label for="floatingInput">post</label> --}}
     </div>
 
-  <a class="basic" id="postbtn" onclick="window.location" aria-current="page"
-          href="/home">post</a>
+  <div class="basic" ><a id="postbtn" onclick="window.location" aria-current="page"
+          href="/home">post</a></div>
 
   </div>
 

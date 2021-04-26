@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="navBar" id="navBar">
-      <div class="nav-item">
+<nav class="navbar">
+  <div id="navBar">
+      <div class="nav-items">
         <a class="nav-btn" onclick="window.location" aria-current="page"
           href="./home">home</a>
           <a class="nav-btn" id="logout" onclick="window.location" aria-current="page"
@@ -14,8 +14,8 @@
 <div class="basic" >My Tech Blog</div>
 
 <div class="basic">
-  <section class="container">
-    <h3>Posts</h3>
+  <section>
+    <div>Posts</div>
     <section class="flex-row justify-center">
       {{#each titles as |post|}}
       <p>{{> notesList}}</p>

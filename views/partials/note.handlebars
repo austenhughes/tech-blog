@@ -1,6 +1,6 @@
 <section class="card">
 
-  <header class="header" id="title">{{title}}</header>
+  <div class="header" id="title">{{title}}</div>
 
   <div class="card-body">
 
@@ -11,11 +11,13 @@
 
         <div class="list" id="author"> author : {{author}}</div>
         <div class="list" id="post"> post : {{post}}</div>
-        <div class="list"> id: <div id="postid">{{id}}</div></div>
+        <div class="list"> id: <a id="postid">{{id}}</a></div>
 
          <div class="form">
       <textarea class="form-control" id="commentBox" placeholder="comment"></textarea>
+      <div>
       <textarea class="form-control" id="usernameComment" placeholder="username"></textarea>
+      </div>
       <a class="btn" id="commentbtn" onclick="window.location" aria-current="page"
           href='/viewNote/{{id}}'>comment</a>
     </div>

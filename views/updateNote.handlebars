@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="navBar" id="navBar">
-      <div class="nav-item">
+<nav class="navbar">
+  <div id="navBar">
+      <div class="nav-items">
         <a class="nav-btn" onclick="window.location" aria-current="page"
           href="/home">home</a>
           <a class="nav-btn" id="logout" onclick="window.location" aria-current="page"
@@ -14,7 +14,7 @@
 <div>
   <div class="basic" >My Tech Blog</div>
 
-    <h3 class="basic">edit note!</h3>
+    <div class="basic">edit note!</div>
     <section class="post basic">
       {{#each thisPostEdit as |post|}}
       <p>{{> noteEdit}}</p>

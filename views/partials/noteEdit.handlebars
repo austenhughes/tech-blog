@@ -2,12 +2,17 @@
 
   <div class="card-body">
 
-    <div> id: <div id="postid">{{id}}</div></div>
+    <div> id: <a id="postid">{{id}}</a></div>
 
     <a class="btn" id="updateThisbtn" onclick="window.location" aria-current="page"
           href='/home'>update</a>
     <a class="btn" id="deletebtn" onclick="window.location" aria-current="page"
           href='/home'>delete</a>
+
+    <div class="form">
+      <textarea class="form-control" id="title" >{{title}}</textarea>
+      {{!-- <label for="floatingInput">title</label> --}}
+    </div>
 
     <div class="form">
       <textarea class="form-control" id="author" >{{author}}</textarea>
@@ -19,10 +24,10 @@
       {{!-- <label for="floatingInput">post</label> --}}
     </div>
 
-    <div class="form">
+    {{!-- <div class="form">
       <textarea class="form-control" id="title" >{{title}}</textarea>
       {{!-- <label for="floatingInput">title</label> --}}
-    </div>
+    </div> --}}
         
       </div>
       </a>
