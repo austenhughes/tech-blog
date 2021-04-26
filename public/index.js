@@ -34,11 +34,13 @@ $(function () {
       const comment = $("#commentBox").val();
       const date = $.now();
       const post_id = $("#postid").text();
+      const username = $("#usernameComment").val();
         
       const newComment = {
         comment,
         date,
         post_id,
+        username
       };
       console.log(newComment);
       fetch(`/api/comments/newComment`, {
@@ -105,6 +107,27 @@ $(function () {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(updatedPost),
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data);
+        });
+    });
+
+    $("#deletebtn").on("click", function (e) {
+      const id = $("#postid").text();
+      const deletedPost = {
+
+      }
+      
+      fetch(`/api/posts/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(deletedPost),
       })
         .then(function (response) {
           return response.json();

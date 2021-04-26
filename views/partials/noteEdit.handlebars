@@ -1,29 +1,27 @@
 <section class="card">
 
-  {{!-- <a href="/posts/{{id}}"></a> --}}
-
-  {{!-- <header class="header" id="title">{{title}}</header> --}}
-
   <div class="card-body">
 
     <div> id: <div id="postid">{{id}}</div></div>
 
-    <button id="updateThisbtn" type="submit" class="btn updatebtn">update</button>
-    <button id="deletebtn" type="submit" class="btn deletebtn">delete</button>
+    <a class="btn" id="updateThisbtn" onclick="window.location" aria-current="page"
+          href='/home'>update</a>
+    <a class="btn" id="deletebtn" onclick="window.location" aria-current="page"
+          href='/home'>delete</a>
 
     <div class="form">
-      <textarea class="form-control" id="author" placeholder={{author}}></textarea>
-      <label for="floatingInput">author</label>
+      <textarea class="form-control" id="author" >{{author}}</textarea>
+      {{!-- <label for="floatingInput">author</label> --}}
     </div>
 
     <div class="form">
-      <textarea class="form-control" id="post" placeholder={{post}}></textarea>
-      <label for="floatingInput">post</label>
+      <textarea class="form-control" id="post" >{{post}}</textarea>
+      {{!-- <label for="floatingInput">post</label> --}}
     </div>
 
     <div class="form">
-      <textarea class="form-control" id="title" placeholder={{title}}></textarea>
-      <label for="floatingInput">title</label>
+      <textarea class="form-control" id="title" >{{title}}</textarea>
+      {{!-- <label for="floatingInput">title</label> --}}
     </div>
         
       </div>

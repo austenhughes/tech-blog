@@ -66,7 +66,7 @@ router.put('/update/:id', async (req, res) => {
         date: req.body.date,
         title: req.body.title,
         author: req.body.author,
-        posts: req.body.post
+        post: req.body.post
       },
       {
         where: {

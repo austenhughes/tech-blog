@@ -12,19 +12,15 @@
   </div>
 </nav>
 <div>
+  <div class="basic" >My Tech Blog</div>
+  
   <section>
-    <h3>View note!</h3>
-    <section class="post">
+    <section class="post basic">
       {{#each thisPost as |post|}}
       <p>{{> note}}</p>
       {{/each}}
     </section>
-    <div class="form">
-      <textarea class="form-control" id="commentBox" placeholder="comment"></textarea>
-      <a class="btn" id="commentbtn" onclick="window.location" aria-current="page"
-          href='/home'>comment</a>
-    </div>
-    <section class="comment">
+    <section class="comment basic">
       {{#each thisPostComments as |post|}}
       <p>{{> comments}}</p>
       {{/each}}

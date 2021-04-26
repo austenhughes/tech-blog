@@ -1,8 +1,6 @@
-/* #commentBox {
-height: 50px;
-width: 500px;
+.basic {
 text-align: center;
-} */
+}
 
 textarea {
 height: 50px;

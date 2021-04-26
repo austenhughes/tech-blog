@@ -1,19 +1,24 @@
 <section class="card">
 
-  {{!-- <a href="/posts/{{id}}"></a> --}}
-
   <header class="header" id="title">{{title}}</header>
 
   <div class="card-body">
 
     <a class="btn" onclick="window.location" aria-current="page"
           href="/updateNote/{{id}}">update</a>
-          
-    <button id="deletebtn" type="submit" class="btn deletebtn">delete</button>
+    <a class="btn" id="deletebtn" onclick="window.location" aria-current="page"
+          href='/home'>delete</a>    
 
         <div class="list" id="author"> author : {{author}}</div>
         <div class="list" id="post"> post : {{post}}</div>
         <div class="list"> id: <div id="postid">{{id}}</div></div>
+
+         <div class="form">
+      <textarea class="form-control" id="commentBox" placeholder="comment"></textarea>
+      <textarea class="form-control" id="usernameComment" placeholder="username"></textarea>
+      <a class="btn" id="commentbtn" onclick="window.location" aria-current="page"
+          href='/viewNote/{{id}}'>comment</a>
+    </div>
         
       </div>
       </a>
