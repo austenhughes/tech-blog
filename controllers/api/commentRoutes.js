@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const { Comments } = require("../../models");
+const { Comments, User } = require("../../models");
+const canDelete = require("../../utils/helpers");
 
 router.get("/", async (req, res) => {
     try {
@@ -11,7 +12,7 @@ router.get("/", async (req, res) => {
   });
 
 router.get("/byPost/:post_id", (req, res) => {
-    Comments.findOne({
+    Comments.findAll({
       where: {
         post_id: req.params.post_id,
       },
@@ -38,6 +39,7 @@ router.post("/newComment", async (req, res) => {
         req.session.date = newComment.date;
         req.session.post_id = newComment.post_id;
         req.session.user_id = newComment.user_id;
+        // user_id = req.session.user_id;
         res.status(200).json(newComment);
       });
     } catch (err) {
@@ -60,11 +62,16 @@ router.put('/:id', async (req, res) => {
     return res.json(newData);
   });
 
-router.delete("/:id", async (req, res) => {
+  // ??? 
+router.delete("/:id", 
+// canDelete, 
+async (req, res) => {
     try {
       const deleteComment = await Comments.destroy({
         where: {
           id: req.params.id,
+          // ???
+          // user_id: req.session.user_id
         },
       });
       if (!deleteComment) {

@@ -2,16 +2,22 @@
     {
         "comment": "happy birthday Austen!!!",
         "date": "1991-02-08",
-        "username": "king bob"
+        "username": "king bob",
+        "post_id":"2",
+        "user_id":"1"
     },
     {
         "comment": "happy birthday Kevin!!!",
         "date": "1991-02-08",
-        "username": "other bob"
+        "username": "other bob",
+        "post_id":"3",
+        "user_id":"1"
     },
     {
         "comment": "a very merry un-birthday to you!!!",
         "date": "1991-02-08",
-        "username": "bobalot"
+        "username": "bobalot",
+        "post_id":"1",
+        "user_id":"1"
     }
 ]

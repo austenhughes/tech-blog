@@ -35,12 +35,16 @@ $(function () {
       const date = $.now();
       const post_id = $("#postid").text();
       const username = $("#usernameComment").val();
+      // const username = req.session.user.username
+      const user_id = $_session.user_id();
+
         
       const newComment = {
         comment,
         date,
         post_id,
-        username
+        username,
+        user_id
       };
       console.log(newComment);
       fetch(`/api/comments/newComment`, {
@@ -63,12 +67,14 @@ $(function () {
       const author = $("#author").val();
       const title = $("#title").val();
       const post = $("#post").val();
-        // ids?
+      // const user_id = req.session.user_id
+
       const newPost = {
         date,
         author,
         title,
         post,
+        // user_id
       };
       console.log(newPost);
       fetch(`/api/posts/newPost`, {
@@ -116,7 +122,35 @@ $(function () {
         });
     });
 
+    // ?
+    $("#updateThisCommentbtn").on("click", function (e) {
+      const id = $("#commentid").text();
+      const date = $.now();
+      const comment = $("#comment").val();
+     
+      const updatedComment = {
+        id,
+        date,
+        comment
+      };
+      console.log(updatedComment);
+      fetch(`/api/comments/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedPost),
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data);
+        });
+    });
+
     $("#deletebtn").on("click", function (e) {
+      
       const id = $("#postid").text();
       const deletedPost = {
 
@@ -138,7 +172,7 @@ $(function () {
     });
 
     $("#deleteCommentbtn").on("click", function (e) {
-      const id = $("#commentid").text();
+      const id = $('#commentid').text();
       const deletedComment = {
 
       }
@@ -150,7 +184,7 @@ $(function () {
         },
         body: JSON.stringify(deletedComment),
       })
-        .then(function (response) {
+      .then(function (response) {
           return response.json();
         })
         .then(function (data) {

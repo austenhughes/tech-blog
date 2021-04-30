@@ -3,18 +3,21 @@
         "date": "1991-02-08",
         "title": "Birthday",
         "author": "Austen Hughes",
-        "post": "this is my birthday!!!"
+        "post": "this is my birthday!!!",
+        "user_id":"1"
     },
     {
         "date": "1992-05-22",
         "title": "Birthday",
         "author": "Kevin Covelo",
-        "post": "this is my husbands birthday!!!"
+        "post": "this is my husbands birthday!!!",
+        "user_id":"1"
     },
     {
         "date": "4242-4-2",
         "title": "Birthday",
         "author": "Ford Prefect",
-        "post": "this is probably not For Prefects birthday"
+        "post": "this is probably not For Prefects birthday",
+        "user_id":"1"
     }
 ]

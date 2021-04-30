@@ -1,38 +1,43 @@
 <nav class="navbar">
   <div id="navBar">
       <div class="nav-items">
-        <a class="nav-btn" onclick="window.location" aria-current="page"
+        <a class="btn" onclick="window.location" aria-current="page"
           href="./home">home</a>
-          <a class="nav-btn" id="logout" onclick="window.location" aria-current="page"
+          <a class="btn" id="logout" onclick="window.location" aria-current="page"
           href="./login">logout</a>
-          <a class="nav-btn" onclick="window.location" aria-current="page"
+          <a class="btn" onclick="window.location" aria-current="page"
           href="./newPost">new post</a>
       </div>
   </div>
   </div>
 </nav>
-<div class="basic" >My Tech Blog</div>
 
+<div class="basic blog" >My Tech Blog
+
+<div class="card">
 <div class="basic"> Create New Post </div>
 
     <div class="form basic">
-      <textarea class="form-control" id="author" placeholder="author"></textarea>
-      {{!-- <label for="floatingInput">author</label> --}}
-    </div>
-    <div class="form basic">
       <textarea class="form-control" id="title" placeholder="title"></textarea>
       {{!-- <label for="floatingInput">title</label> --}}
+    </div>
+    <div class="form basic">
+      <textarea class="form-control" id="author" placeholder="author"></textarea>
+      {{!-- <label for="floatingInput">author</label> --}}
     </div>
     <div class="form basic">
       <textarea class="form-control" id="post" placeholder="post"></textarea>
       {{!-- <label for="floatingInput">post</label> --}}
     </div>
 
-  <div class="basic" ><a id="postbtn" onclick="window.location" aria-current="page"
+  <div class="basic btn" ><a id="postbtn" onclick="window.location" aria-current="page"
           href="/home">post</a></div>
 
   </div>
 
+  </div>
+
+</div>
 </div>
 
 <script src="/js/logout.js"></script>

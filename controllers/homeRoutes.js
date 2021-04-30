@@ -36,7 +36,7 @@ router.get("/viewNote/:id", withAuth, async (req, res) => {
   
     const thisPost = selectedPost.map((post) => post.get({ plain: true }));
     const thisPostComments = selectedPostComments.map((post) => post.get({ plain: true }));
-
+    
     res.render("viewNote", { thisPost, thisPostComments, logged_in: req.session.logged_in });
 
   });
@@ -49,6 +49,21 @@ router.get("/updateNote/:id", withAuth, async (req, res) => {
       });  
       const thisPostEdit = selectedPostEdit.map((post) => post.get({ plain: true }));
       res.render("UpdateNote", { thisPostEdit, logged_in: req.session.logged_in });
+    });
+
+router.get("/login", (req, res) => {
+    res.render("login");
+  });
+
+// ?
+router.get("/updateComment/:id", withAuth, async (req, res) => {
+    const selectedCommentEdit = await Comment.findAll({
+        where: {
+          id: req.params.id,
+        },
+      });  
+      const thisCommentEdit = selectedCommentEdit.map((post) => post.get({ plain: true }));
+      res.render("UpdateComment", { thisCommentEdit, logged_in: req.session.logged_in });
     });
 
 router.get("/login", (req, res) => {
