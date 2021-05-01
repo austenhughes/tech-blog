@@ -36,7 +36,7 @@ $(function () {
       const post_id = $("#postid").text();
       const username = $("#usernameComment").val();
       // const username = req.session.user.username
-      const user_id = $_session.user_id();
+      // const user_id = $(_SESSION.user_id);
 
         
       const newComment = {
@@ -44,7 +44,7 @@ $(function () {
         date,
         post_id,
         username,
-        user_id
+        // user_id
       };
       console.log(newComment);
       fetch(`/api/comments/newComment`, {
@@ -134,7 +134,7 @@ $(function () {
         comment
       };
       console.log(updatedComment);
-      fetch(`/api/comments/${id}`, {
+      fetch(`/api/comments/update/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

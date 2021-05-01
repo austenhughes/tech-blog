@@ -63,7 +63,7 @@ router.get("/updateComment/:id", withAuth, async (req, res) => {
         },
       });  
       const thisCommentEdit = selectedCommentEdit.map((post) => post.get({ plain: true }));
-      res.render("UpdateComment", { thisCommentEdit, logged_in: req.session.logged_in });
+      res.render("updateComment", { thisCommentEdit, logged_in: req.session.logged_in });
     });
 
 router.get("/login", (req, res) => {

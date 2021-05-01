@@ -33,21 +33,22 @@ router.get("/:id", (req, res) => {
 
 router.post("/newComment", async (req, res) => {
     try {
-      const newComment = await Comments.create(req.body);
-      req.session.save(() => {
-        req.session.comment = newComment.comment;
-        req.session.date = newComment.date;
-        req.session.post_id = newComment.post_id;
-        req.session.user_id = newComment.user_id;
-        // user_id = req.session.user_id;
-        res.status(200).json(newComment);
-      });
+      const newComment = await Comments.create({...req.body, user_id : req.session.user_id});
+      console.log(req.session);
+      // req.session.save(() => {
+      //   newComment.comment = req.session.comment;
+      //   newComment.date = req.session.date;
+      //   newComment.post_id = req.session.post_id;
+      //   newComment.user_id =req.session.user_id;
+      //   // user_id = req.session.user_id;
+      //   res.status(200).json(newComment);
+      // });
     } catch (err) {
       res.status(500).json(err);
     }
   });
 
-router.put('/:id', async (req, res) => {
+router.put('/update/:id', async (req, res) => {
     const newData = await Comments.update(
       {
         comment: req.body.comment,
