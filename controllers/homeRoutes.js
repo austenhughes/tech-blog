@@ -57,7 +57,7 @@ router.get("/login", (req, res) => {
 
 // ?
 router.get("/updateComment/:id", withAuth, async (req, res) => {
-    const selectedCommentEdit = await Comment.findAll({
+    const selectedCommentEdit = await Comments.findAll({
         where: {
           id: req.params.id,
         },

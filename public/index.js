@@ -126,7 +126,7 @@ $(function () {
     $("#updateThisCommentbtn").on("click", function (e) {
       const id = $("#commentid").text();
       const date = $.now();
-      const comment = $("#comment").val();
+      const comment = $("#commentNew").val();
      
       const updatedComment = {
         id,
@@ -139,7 +139,7 @@ $(function () {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(updatedPost),
+        body: JSON.stringify(updatedComment),
       })
         .then(function (response) {
           return response.json();

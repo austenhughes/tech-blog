@@ -33,16 +33,11 @@ router.get("/:id", (req, res) => {
 
 router.post("/newComment", async (req, res) => {
     try {
-      const newComment = await Comments.create({...req.body, user_id : req.session.user_id});
-      console.log(req.session);
-      // req.session.save(() => {
-      //   newComment.comment = req.session.comment;
-      //   newComment.date = req.session.date;
-      //   newComment.post_id = req.session.post_id;
-      //   newComment.user_id =req.session.user_id;
-      //   // user_id = req.session.user_id;
-      //   res.status(200).json(newComment);
-      // });
+      const newComment = await Comments.create(
+        {
+          ...req.body, 
+          user_id : req.session.user_id
+        });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -51,8 +46,8 @@ router.post("/newComment", async (req, res) => {
 router.put('/update/:id', async (req, res) => {
     const newData = await Comments.update(
       {
+        date: req.body.date,
         comment: req.body.comment,
-        date: req.body.date
       },
       {
         where: {
@@ -63,16 +58,15 @@ router.put('/update/:id', async (req, res) => {
     return res.json(newData);
   });
 
-  // ??? 
+
 router.delete("/:id", 
-// canDelete, 
+canDelete, 
 async (req, res) => {
     try {
       const deleteComment = await Comments.destroy({
         where: {
-          id: req.params.id,
-          // ???
-          // user_id: req.session.user_id
+          // id: req.params.id,
+          user_id: req.session.user_id
         },
       });
       if (!deleteComment) {

@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Post } = require("../../models");
+const canDelete = require("../../utils/helpers");
 
 // get post+ put delete 
 // router.get
@@ -25,41 +26,16 @@ router.get("/:id", (req, res) => {
 
 router.post("/newPost", async (req, res) => {
     try {
-      const newPost = await Post.create(req.body);
-      req.session.save(() => {
-        req.session.date = newPost.date;
-        req.session.title = newPost.title;
-        req.session.author = newPost.author;
-        req.session.post = newPost.post;
-        req.session.user_id = newPost.user_id;
-        res.status(200).json(newPost);
-      });
+      const newComment = await Post.create(
+        {
+          ...req.body, 
+          user_id : req.session.user_id
+        });
     } catch (err) {
       res.status(500).json(err);
     }
   });
-
-// router.put('/:id', async (req, res) => {
-//     try {
-//     const newData = await Post.update(req.body);
-//     req.session.save(() => {
-//         req.session.date = newData.date;
-//         req.session.title = newData.title;
-//         req.session.author = newData.author;
-//         req.session.post = newData.post;
-//         res.status(200).json(newData);
-//       },
-//       {
-//         where: {
-//           id: req.params.id,
-//         }
-//       });
-//     } catch (err) {
-//         res.status(500).json(err);
-//       }
-//     });
   
-
 router.put('/update/:id', async (req, res) => {
     const newData = await Post.update(
       {
@@ -77,11 +53,14 @@ router.put('/update/:id', async (req, res) => {
     return res.json(newData);
   });
   
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", 
+canDelete, 
+async (req, res) => {
     try {
       const deletePost = await Post.destroy({
         where: {
-          id: req.params.id,
+          // id: req.params.id,
+          user_id: req.session.user_id
         },
       });
       if (!deletePost) {
