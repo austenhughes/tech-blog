@@ -1,10 +1,11 @@
-const canDelete = (req, res, next) => {
+const canUpdate = (req, res, next) => {
     if (!req.session.user_id) {
-      res.redirect("/home");
-      // res.alert("you can only delete your own posts")
+      res.redirect("./home");
     } else {
+      // global.window.alert("you do not have permission to edit other peoples posts");
       next();
+      // res.redirect("/home");
     }
   };
   
-  module.exports = canDelete;
+  module.exports = canUpdate;

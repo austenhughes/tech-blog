@@ -1,9 +1,6 @@
 const router = require("express").Router();
 const { Post } = require("../../models");
-const canDelete = require("../../utils/helpers");
-
-// get post+ put delete 
-// router.get
+const canUpdate = require("../../utils/helpers");
 
 router.get("/", async (req, res) => {
     try {
@@ -36,7 +33,9 @@ router.post("/newPost", async (req, res) => {
     }
   });
   
-router.put('/update/:id', async (req, res) => {
+router.put('/update/:id', 
+canUpdate, 
+async (req, res) => {
     const newData = await Post.update(
       {
         date: req.body.date,
@@ -47,6 +46,7 @@ router.put('/update/:id', async (req, res) => {
       {
         where: {
           id: req.params.id,
+          user_id: req.session.user_id
         },
       }
     );
@@ -54,12 +54,12 @@ router.put('/update/:id', async (req, res) => {
   });
   
 router.delete("/:id", 
-canDelete, 
+canUpdate, 
 async (req, res) => {
     try {
       const deletePost = await Post.destroy({
         where: {
-          // id: req.params.id,
+          id: req.params.id,
           user_id: req.session.user_id
         },
       });

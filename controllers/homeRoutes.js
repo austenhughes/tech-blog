@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Post, Comments, User } = require("../models");
 const withAuth = require("../utils/auth");
+const canUpdate = require("../utils/helpers");
 
 router.get("/", withAuth, async (req, res) => {
   const allTitles = await Post.findAll().catch((err) => {
@@ -39,43 +40,46 @@ router.get("/viewNote/:id", withAuth, async (req, res) => {
     
     res.render("viewNote", { thisPost, thisPostComments, logged_in: req.session.logged_in });
 
-  });
+});
 
-router.get("/updateNote/:id", withAuth, async (req, res) => {
+router.get("/updateNote/:id", 
+canUpdate, 
+async (req, res) => {
     const selectedPostEdit = await Post.findAll({
         where: {
           id: req.params.id,
+          user_id: req.session.user_id
         },
       });  
       const thisPostEdit = selectedPostEdit.map((post) => post.get({ plain: true }));
-      res.render("UpdateNote", { thisPostEdit, logged_in: req.session.logged_in });
-    });
+      res.render("UpdateNote", { thisPostEdit, user_id: req.session.user_id });
+});
 
 router.get("/login", (req, res) => {
     res.render("login");
-  });
+});
 
-// ?
-router.get("/updateComment/:id", withAuth, async (req, res) => {
+router.get("/updateComment/:id", 
+canUpdate, 
+async (req, res) => {
     const selectedCommentEdit = await Comments.findAll({
         where: {
           id: req.params.id,
+          user_id: req.session.user_id
         },
-      });  
-      const thisCommentEdit = selectedCommentEdit.map((post) => post.get({ plain: true }));
-      res.render("updateComment", { thisCommentEdit, logged_in: req.session.logged_in });
-    });
+      }); 
 
-router.get("/login", (req, res) => {
-    res.render("login");
-  });
+      const thisCommentEdit = selectedCommentEdit.map((post) => post.get({ plain: true }));
+
+      res.render("updateComment", { thisCommentEdit, user_id: req.session.user_id });
+});
 
 router.get("/newUser", (req, res) => {
     res.render("newUser");
-  });
+});
 
 router.get("/newPost", withAuth, async (req, res) => {
     res.render("newPost", { logged_in: req.session.logged_in });
-  });
+});
 
   module.exports = router;

@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Comments, User } = require("../../models");
-const canDelete = require("../../utils/helpers");
+const canUpdate = require("../../utils/helpers");
 
 router.get("/", async (req, res) => {
     try {
@@ -43,7 +43,9 @@ router.post("/newComment", async (req, res) => {
     }
   });
 
-router.put('/update/:id', async (req, res) => {
+router.put('/update/:id', 
+canUpdate,
+async (req, res) => {
     const newData = await Comments.update(
       {
         date: req.body.date,
@@ -52,20 +54,20 @@ router.put('/update/:id', async (req, res) => {
       {
         where: {
           id: req.params.id,
+          user_id: req.session.user_id
         },
       }
     );
     return res.json(newData);
   });
 
-
 router.delete("/:id", 
-canDelete, 
+canUpdate, 
 async (req, res) => {
     try {
       const deleteComment = await Comments.destroy({
         where: {
-          // id: req.params.id,
+          id: req.params.id,
           user_id: req.session.user_id
         },
       });
@@ -78,6 +80,5 @@ async (req, res) => {
       res.status(500).json(err);
     }
   });
-
 
 module.exports = router;
