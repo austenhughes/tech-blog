@@ -74,7 +74,9 @@ express sessions : https://www.npmjs.com/package/express-session <br />
 
 github : https://github.com/austenhughes/tech-blog
 
-<!-- ## heroku :  -->
+## heroku : 
+
+heroku : https://sheltered-wave-70995.herokuapp.com/
 
 ## contact me at :
 
