@@ -1,6 +1,6 @@
 # tech-blog :
 
-here you will find a basic blog. Built for sharing thoughts between friends across the web. Each user will have a log in and need to use it to access the site. any user can add posts or comments but they can only edit or delete their own posts or comments. It is hosted on heroku ... go check it out!!! 
+here you will find a basic blog. Built for sharing thoughts between friends across the web. Each user will have a log in and need to use it to access the site. any user can add posts or comments but they can only edit or delete their own posts or comments. It is hosted on heroku ... go check it out!!! https://sheltered-wave-70995.herokuapp.com/
 
 ## installations (to run locally) :
 
@@ -55,7 +55,7 @@ To use the blog :
     - you can also chose to delete the post at this time using the delete item 
     - posts and comments are automatically assigned to the user id of the person logged in and this can no be changed 
 ![](assets/makeNewPost.png)
-    -- to make a new post click on the new post item found in the upder left hand corner 
+    -- to make a new post click on the new post item found in the upper left hand corner 
     - this will take you to page where you will be given text boxes to fill out
         - the will be for title author and post 
     -fill these out and hit submit
