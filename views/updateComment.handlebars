@@ -12,9 +12,12 @@
   </div>
 </nav>
 <div>
-  <div class="basic blog" >My Tech Blog
+  <div class="basic blog" > <div class="title">My Tech Blog</div>
 
-    <div class="basic">edit comment!</div>
+    <div class="basic rules">- you will only be able to edit/delete your own posts/comments</div>
+    <a class="btn" onclick="window.location" aria-current="page"
+          href="/home">home</a>
+
     <section class="post basic">
       {{#each thisCommentEdit as |post|}}
       <p>{{> commentEdit}}</p>
